@@ -1,7 +1,9 @@
 package Cursos;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class Curso {
     private String nome;
@@ -11,14 +13,53 @@ public class Curso {
     private String duracao;
     private ArrayList<Materiais> materiais;
     
-    public Curso(String[] values) {
+    public Curso() {
     }
-    public void constructor(String[] parametros) {
-        this.nome = parametros[0];
-        this.descricao = parametros[1];
-        this.tipo = parametros[2];
-        this.modulo = parametros[3];
-        this.duracao = parametros[4];
+ 
+    public void constructor() {
+       
+    }
+
+    public void doArquivo(String linha) {
+        var cols = linha.split(",");
+        this.nome = cols[0];
+        this.descricao = cols[1];
+        this.tipo = cols[2];
+        this.modulo = cols[3];
+        this.duracao = cols[4];
+        // this.materiais = cols[5];
+    }
+    
+    
+    public static ArrayList<Curso> carregaCursos() {
+        File csv = new File("../arquivos/cursos.csv");
+        ArrayList<Curso> cursos = new ArrayList<Curso>();
+        try {
+            String linha;
+            Scanner leitor = new Scanner(csv);
+            leitor.nextLine();
+            while (leitor.hasNext()) {
+                linha = leitor.nextLine();
+                Curso curso = new Curso();
+                curso.doArquivo(linha);
+                cursos.add(curso);
+            }
+
+            return cursos;
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    
+    public String toString() {
+        return "{nome: "+this.nome+
+        ",\n descricao: "+this.descricao+
+        ",\n tipo: "+this.descricao+
+        ",\n  modulo: "+this.descricao+
+            ",\n duracao: "+this.descricao+
+        "}";
     }
     /**
      * @return String return the nome

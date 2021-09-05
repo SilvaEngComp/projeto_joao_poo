@@ -1,0 +1,6 @@
+codigo menu principal,nome menu principal,codigo submenu,nome submenu curso,nome submenu anuncio,nome submenu frete
+1,Curso,1,Cadastrar Curso,Cadastrar Anúncio,Cadastrar Frete
+2,Anúncio,2,Listar Cursos,Listar anúncios,Listar Fretes
+3,Frete,3,Excluir Curso/s,Excluir anúncio/s,Excluir Frete/s
+4,Testar programa,4,Editar Curso,Editar Anúncio,Editar Frete
+0,Sair,5,Retornar ao menu principal,Retornar ao menu principal,Retornar ao menu principal
