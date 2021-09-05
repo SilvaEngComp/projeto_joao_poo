@@ -60,17 +60,17 @@ public class Principal {
     
    
 
-    private void showSubMenu(int op) {
+    private void showSubMenu(int menuGeral) {
         Scanner sc = new Scanner(System.in);
         while (true) {
              if (this.erro != "") {
                 System.out.println(this.erro);
                 this.erro = "";
             }
-        System.out.println(this.menu.get(op).getTitulo()+"\n");
+        System.out.println(this.menu.get(menuGeral).getTitulo()+"\n");
         System.out.println("Escolha uma opção: ");
 
-           var submenu = this.menu.get(op).getSubMenu();
+           var submenu = this.menu.get(menuGeral).getSubMenu();
               for (int i = 0; i < submenu.size(); i++) {
                 System.out.println(submenu.get(i).toString());
             }
@@ -84,7 +84,11 @@ public class Principal {
             if (opcao == 4) {
                 break;
             } else {
-
+                if (menuGeral == 0) {//cursos
+                    if (opcao == 1) {
+                        Curso.ListarCursos(this.cursos);
+                    }
+                }
             }
             
 

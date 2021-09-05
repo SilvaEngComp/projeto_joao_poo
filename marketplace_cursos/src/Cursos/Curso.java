@@ -30,6 +30,20 @@ public class Curso {
         // this.materiais = cols[5];
     }
     
+
+    public static Curso criarCurso() {
+        Curso curso = new Curso();
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Digite o nome do curso: ");
+        curso.setNome(sc.nextLine()); 
+        System.out.println("Digite a descrição do curso: ");
+        curso.setDescricao(sc.nextLine());
+
+
+        return curso;
+    }
+
     
     public static ArrayList<Curso> carregaCursos() {
         File csv = new File("../arquivos/cursos.csv");
@@ -52,14 +66,19 @@ public class Curso {
         }
     }
 
+    public static void ListarCursos(ArrayList<Curso> cursos) {
+         for (int i = 0; i < cursos.size(); i++) {
+                System.out.println(i+"º:"+cursos.get(i).toString()+"\n\n");
+            }
+    }
     
     public String toString() {
-        return "{nome: "+this.nome+
-        ",\n descricao: "+this.descricao+
-        ",\n tipo: "+this.descricao+
-        ",\n  modulo: "+this.descricao+
-            ",\n duracao: "+this.descricao+
-        "}";
+        return "\n nome: "+this.nome+
+        ",\t\t\t\t\t\t\t\t\n descricao: "+this.descricao+
+        ",\t\t\n tipo: "+this.descricao+
+        ",\t\t\n  modulo: "+this.descricao+
+            ",\t\t\n duracao: "+this.descricao+
+        "";
     }
     /**
      * @return String return the nome
